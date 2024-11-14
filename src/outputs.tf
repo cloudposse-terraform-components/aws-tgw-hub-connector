@@ -1,4 +1,4 @@
-output "mock" {
-  description = "Mock output example for the Cloud Posse Terraform component template"
-  value       = local.enabled ? "hello ${basename(abspath(path.module))}" : ""
+output "aws_ec2_transit_gateway_peering_attachment_id" {
+  value       = join("", aws_ec2_transit_gateway_peering_attachment.this[*].id)
+  description = "Transit Gateway Peering Attachment ID"
 }
