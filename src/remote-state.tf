@@ -11,7 +11,7 @@ module "utils" {
 
 module "account_map" {
   source  = "cloudposse/stack-config/yaml//modules/remote-state"
-  version = "1.5.0"
+  version = "1.8.0"
 
   component   = "account-map"
   environment = var.account_map_environment_name
@@ -22,7 +22,7 @@ module "account_map" {
 
 module "tgw_hub_this_region" {
   source  = "cloudposse/stack-config/yaml//modules/remote-state"
-  version = "1.5.0"
+  version = "1.8.0"
 
   component = "tgw/hub"
 
@@ -31,7 +31,7 @@ module "tgw_hub_this_region" {
 
 module "tgw_hub_primary_region" {
   source  = "cloudposse/stack-config/yaml//modules/remote-state"
-  version = "1.5.0"
+  version = "1.8.0"
 
   component   = "tgw/hub"
   stage       = local.primary_tgw_hub_stage
