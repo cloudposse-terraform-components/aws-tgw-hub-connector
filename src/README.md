@@ -5,7 +5,7 @@ tags:
   - provider/aws
 ---
 
-# Component: `tgw`
+# Component: `tgw-hub-connector`
 
 This component is responsible for provisioning an
 [AWS Transit Gateway Peering Connection](https://aws.amazon.com/transit-gateway) to connect TGWs from different accounts
