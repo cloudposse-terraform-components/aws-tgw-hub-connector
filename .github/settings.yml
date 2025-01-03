@@ -5,3 +5,4 @@ repository:
   description: This component is responsible for provisioning an AWS Transit Gateway Peering Connection to connect TGWs from different accounts and(or) regions
   homepage: https://cloudposse.com/accelerate
   topics: terraform, terraform-component
+
