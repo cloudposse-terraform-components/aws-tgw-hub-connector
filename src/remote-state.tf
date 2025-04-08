@@ -5,7 +5,7 @@ locals {
 # Used to translate region to environment
 module "utils" {
   source  = "cloudposse/utils/aws"
-  version = "1.3.0"
+  version = "1.4.0"
   enabled = local.enabled
 }
 
