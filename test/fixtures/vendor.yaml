@@ -17,6 +17,19 @@ spec:
         - "**/modules/**"
       excluded_paths: []
 
+    - component: "tgw-hub"
+      source: github.com/cloudposse-terraform-components/aws-tgw-hub.git//src?ref={{.Version}}
+      version: v1.535.2
+      targets:
+        - "components/terraform/tgw/hub"
+      included_paths:
+        - "**/*.tf"
+        - "**/*.md"
+        - "**/*.tftmpl"
+        - "**/modules/**"
+      excluded_paths: []
+
+
     - component: "vpc"
       source: github.com/cloudposse-terraform-components/aws-vpc.git//src?ref={{.Version}}
       version: v1.536.0

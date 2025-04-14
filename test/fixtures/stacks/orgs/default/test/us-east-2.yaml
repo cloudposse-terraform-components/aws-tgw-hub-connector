@@ -1,0 +1,17 @@
+import:
+  - orgs/default/test/_defaults
+  - catalog/vpc
+  - catalog/tgw-hub
+  - catalog/usecase/basic
+  - catalog/usecase/disabled
+
+vars:
+  region: us-east-2
+  environment: ue2
+
+components:
+  terraform:
+    vpc:
+      vars:
+        ipv4_primary_cidr_block: "172.17.0.0/16"
+

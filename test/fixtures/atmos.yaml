@@ -46,7 +46,7 @@ stacks:
     - "**/_defaults.yaml"
 
   # Can also be set using `ATMOS_STACKS_NAME_PATTERN` ENV var
-  name_pattern: "{tenant}-{stage}"
+  name_pattern: "{tenant}-{environment}-{stage}"
 
 workflows:
   # Can also be set using `ATMOS_WORKFLOWS_BASE_PATH` ENV var, or `--workflows-dir` command-line arguments
@@ -82,6 +82,6 @@ commands:
     steps:
       - >
         atmos describe stacks --format json --sections=component,metadata --components=component -s sandbox
-        | jq '.[] | .components.terraform | to_entries | 
-        map(select(.value.component == "component" and (.value.metadata.type != "abstract" or .value.metadata.type == null))) 
-        | .[].key' 
+        | jq '.[] | .components.terraform | to_entries |
+        map(select(.value.component == "component" and (.value.metadata.type != "abstract" or .value.metadata.type == null)))
+        | .[].key'

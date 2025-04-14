@@ -1,19 +1,8 @@
 components:
   terraform:
-    tgw-hub/disabled:
+    tgw-hub-connector/disabled:
       metadata:
-        component: tgw/hub
+        component: tgw/hub-connector
       vars:
         enabled: false
-        expose_eks_sg: false
-        account_map_tenant_name: core
-        account_map_stage_name: root
-        tags:
-          Team: sre
-          Service: tgw-hub
-        connections:
-          - account:
-              tenant: default
-              stage: test
-            vpc_component_names:
-              - vpc
+        primary_tgw_hub_region: us-east-1
