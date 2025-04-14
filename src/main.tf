@@ -3,16 +3,18 @@ locals {
 
   primary_tgw_hub_tenant     = length(var.primary_tgw_hub_tenant) > 0 ? var.primary_tgw_hub_tenant : module.this.tenant
   primary_tgw_hub_stage      = length(var.primary_tgw_hub_stage) > 0 ? var.primary_tgw_hub_stage : module.this.stage
-  primary_tgw_hub_account    = yamldecode(data.utils_component_config.primary_tgw_hub.output).stack
-  primary_tgw_hub_account_id = module.account_map.outputs.full_account_map[local.primary_tgw_hub_account]
+  primary_tgw_hub_account    = local.enabled ? yamldecode(data.utils_component_config.primary_tgw_hub[0].output).stack : null
+  primary_tgw_hub_account_id = local.enabled ? module.account_map.outputs.full_account_map[local.primary_tgw_hub_account] : null
 }
 
 data "utils_component_config" "primary_tgw_hub" {
-  component     = "tgw/hub"
-  namespace     = module.this.namespace
-  tenant        = local.primary_tgw_hub_tenant
-  environment   = local.primary_tgw_hub_environment
-  stage         = local.primary_tgw_hub_stage
+  count = local.enabled ? 1 : 0
+
+  component   = "tgw/hub"
+  namespace   = module.this.namespace
+  tenant      = local.primary_tgw_hub_tenant
+  environment = local.primary_tgw_hub_environment
+  stage       = local.primary_tgw_hub_stage
 }
 
 # Connect two Transit Gateway Hubs across regions
