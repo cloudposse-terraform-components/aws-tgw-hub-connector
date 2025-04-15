@@ -1,0 +1,30 @@
+terraform:
+  backend_type: local
+  backend:
+    local:
+      path: '{{ getenv "COMPONENT_HELPER_STATE_DIR" | default "../../../state" }}/{{ .component }}/terraform.tfstate'
+      workspace_dir: '{{ getenv "COMPONENT_HELPER_STATE_DIR" | default "../../../state" }}/{{ .component }}/'
+  vars:
+    namespace: eg
+    tenant: default
+    stage: test
+    label_order:
+      - namespace
+      - tenant
+      - environment
+      - stage
+      - name
+      - attributes
+    descriptor_formats:
+      account_name:
+        format: "%v-%v-%v"
+        labels:
+          - tenant
+          - environment
+          - stage
+      stack:
+        format: "%v-%v-%v"
+        labels:
+          - tenant
+          - environment
+          - stage

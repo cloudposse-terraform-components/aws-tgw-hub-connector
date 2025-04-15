@@ -1,0 +1,14 @@
+import:
+  - orgs/default/test/_defaults
+  - catalog/vpc
+  - catalog/tgw-hub
+
+vars:
+  region: us-east-1
+  environment: ue1
+
+components:
+  terraform:
+    vpc:
+      vars:
+        ipv4_primary_cidr_block: "172.16.0.0/16"

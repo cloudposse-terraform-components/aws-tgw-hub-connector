@@ -1,0 +1,12 @@
+components:
+  terraform:
+    tgw-hub-connector/basic:
+      metadata:
+        component: tgw/hub-connector
+      vars:
+        enabled: true
+        primary_tgw_hub_region: us-east-1
+        primary_tgw_hub_stage: test
+        primary_tgw_hub_tenant: default
+        env_naming_convention: to_fixed
+

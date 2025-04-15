@@ -42,3 +42,9 @@ variable "account_map_stage_name" {
   description = "The name of the stage where `account_map` is provisioned"
   default     = "root"
 }
+
+variable "account_map_tenant_name" {
+  type        = string
+  description = "The name of the tenant where `account_map` is provisioned"
+  default     = "core"
+}
