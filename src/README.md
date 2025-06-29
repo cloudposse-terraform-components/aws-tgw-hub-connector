@@ -72,15 +72,15 @@ components:
 | Name | Version |
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.0.0 |
-| <a name="requirement_aws"></a> [aws](#requirement\_aws) | >= 4.1 |
+| <a name="requirement_aws"></a> [aws](#requirement\_aws) | >= 4.1, < 6.0.0 |
 | <a name="requirement_utils"></a> [utils](#requirement\_utils) | >= 1.10.0 |
 
 ## Providers
 
 | Name | Version |
 |------|---------|
-| <a name="provider_aws"></a> [aws](#provider\_aws) | >= 4.1 |
-| <a name="provider_aws.primary_tgw_hub_region"></a> [aws.primary\_tgw\_hub\_region](#provider\_aws.primary\_tgw\_hub\_region) | >= 4.1 |
+| <a name="provider_aws"></a> [aws](#provider\_aws) | >= 4.1, < 6.0.0 |
+| <a name="provider_aws.primary_tgw_hub_region"></a> [aws.primary\_tgw\_hub\_region](#provider\_aws.primary\_tgw\_hub\_region) | >= 4.1, < 6.0.0 |
 | <a name="provider_utils"></a> [utils](#provider\_utils) | >= 1.10.0 |
 
 ## Modules
