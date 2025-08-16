@@ -48,3 +48,21 @@ variable "account_map_tenant_name" {
   description = "The name of the tenant where `account_map` is provisioned"
   default     = "core"
 }
+
+variable "account_map_component_name" {
+  type        = string
+  description = "The name of the account-map component"
+  default     = "account-map"
+}
+
+variable "tgw_hub_this_region_component_name" {
+  type        = string
+  description = "The component name of the tgw hub in this region"
+  default     = "tgw/hub"
+}
+
+variable "tgw_hub_primary_region_component_name" {
+  type        = string
+  description = "The component name of the tgw hub in the primary region"
+  default     = "tgw/hub"
+}
