@@ -108,6 +108,7 @@ components:
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
+| <a name="input_account_map_component_name"></a> [account\_map\_component\_name](#input\_account\_map\_component\_name) | The name of the account-map component | `string` | `"account-map"` | no |
 | <a name="input_account_map_environment_name"></a> [account\_map\_environment\_name](#input\_account\_map\_environment\_name) | The name of the environment where `account_map` is provisioned | `string` | `"gbl"` | no |
 | <a name="input_account_map_stage_name"></a> [account\_map\_stage\_name](#input\_account\_map\_stage\_name) | The name of the stage where `account_map` is provisioned | `string` | `"root"` | no |
 | <a name="input_account_map_tenant_name"></a> [account\_map\_tenant\_name](#input\_account\_map\_tenant\_name) | The name of the tenant where `account_map` is provisioned | `string` | `"core"` | no |
@@ -134,6 +135,8 @@ components:
 | <a name="input_stage"></a> [stage](#input\_stage) | ID element. Usually used to indicate role, e.g. 'prod', 'staging', 'source', 'build', 'test', 'deploy', 'release' | `string` | `null` | no |
 | <a name="input_tags"></a> [tags](#input\_tags) | Additional tags (e.g. `{'BusinessUnit': 'XYZ'}`).<br/>Neither the tag keys nor the tag values will be modified by this module. | `map(string)` | `{}` | no |
 | <a name="input_tenant"></a> [tenant](#input\_tenant) | ID element \_(Rarely used, not included by default)\_. A customer identifier, indicating who this instance of a resource is for | `string` | `null` | no |
+| <a name="input_tgw_hub_primary_region_component_name"></a> [tgw\_hub\_primary\_region\_component\_name](#input\_tgw\_hub\_primary\_region\_component\_name) | The component name of the tgw hub in the primary region | `string` | `"tgw/hub"` | no |
+| <a name="input_tgw_hub_this_region_component_name"></a> [tgw\_hub\_this\_region\_component\_name](#input\_tgw\_hub\_this\_region\_component\_name) | The component name of the tgw hub in this region | `string` | `"tgw/hub"` | no |
 
 ## Outputs
 
