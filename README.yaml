@@ -61,9 +61,9 @@ usage: |-
   ```
 
 references:
-  - name: cloudposse/terraform-aws-components
+  - name: cloudposse-terraform-components
     description: Cloud Posse's upstream component
-    url: https://github.com/cloudposse/terraform-aws-components/tree/main/modules/tgw/cross-region-hub-connector
+    url: https://github.com/orgs/cloudposse-terraform-components/repositories
 tags:
   - component/tgw/cross-region-hub-connector
   - layer/network
