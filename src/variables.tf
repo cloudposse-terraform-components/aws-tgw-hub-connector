@@ -31,6 +31,18 @@ variable "primary_tgw_hub_region" {
   description = "The name of the AWS region where the primary Transit Gateway hub is deployed. This value is used with `var.env_naming_convention` to determine the primary Transit Gateway hub's environment name."
 }
 
+variable "primary_tgw_hub_component_name" {
+  type        = string
+  description = "The component name of the primary tgw hub"
+  default     = "tgw/hub"
+}
+
+variable "this_tgw_hub_component_name" {
+  type        = string
+  description = "The component name of this tgw hub"
+  default     = "tgw/hub"
+}
+
 variable "account_map_environment_name" {
   type        = string
   description = "The name of the environment where `account_map` is provisioned"
@@ -55,14 +67,3 @@ variable "account_map_component_name" {
   default     = "account-map"
 }
 
-variable "tgw_hub_this_region_component_name" {
-  type        = string
-  description = "The component name of the tgw hub in this region"
-  default     = "tgw/hub"
-}
-
-variable "tgw_hub_primary_region_component_name" {
-  type        = string
-  description = "The component name of the tgw hub in the primary region"
-  default     = "tgw/hub"
-}
