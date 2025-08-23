@@ -13,7 +13,6 @@ and(or) regions.
 
 Transit Gateway does not support sharing the Transit Gateway hub across regions. You must deploy a Transit Gateway hub
 for each region and connect the alternate hub to the primary hub.
-
 ## Usage
 
 **Stack Level**: Regional
@@ -22,7 +21,7 @@ This component is deployed to each alternate region with `tgw/hub`.
 
 For example if your primary region is `us-east-1` and your alternate region is `us-west-2`, deploy another `tgw/hub` in
 `us-west-2` and peer the two with `tgw/cross-region-hub-connector` with the following stack config, imported into
-`us-west-2`
+`us-west-2`:
 
 ```yaml
 import:
@@ -65,8 +64,8 @@ components:
         primary_tgw_hub_region: us-east-1
 ```
 
-<!-- prettier-ignore-start -->
-<!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
+
+<!-- markdownlint-disable -->
 ## Requirements
 
 | Name | Version |
@@ -143,12 +142,17 @@ components:
 | Name | Description |
 |------|-------------|
 | <a name="output_aws_ec2_transit_gateway_peering_attachment_id"></a> [aws\_ec2\_transit\_gateway\_peering\_attachment\_id](#output\_aws\_ec2\_transit\_gateway\_peering\_attachment\_id) | Transit Gateway Peering Attachment ID |
-<!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
-<!-- prettier-ignore-end -->
+<!-- markdownlint-restore -->
+
+
 
 ## References
 
-- [cloudposse/terraform-aws-components](https://github.com/cloudposse/terraform-aws-components/tree/main/modules/tgw/cross-region-hub-connector) -
-  Cloud Posse's upstream component
+
+- [cloudposse/terraform-aws-components](https://github.com/cloudposse/terraform-aws-components/tree/main/modules/tgw/cross-region-hub-connector) - Cloud Posse's upstream component
+
+
+
 
 [<img src="https://cloudposse.com/logo-300x69.svg" height="32" align="right"/>](https://cpco.io/homepage?utm_source=github&utm_medium=readme&utm_campaign=cloudposse-terraform-components/aws-tgw-hub-connector&utm_content=)
+
