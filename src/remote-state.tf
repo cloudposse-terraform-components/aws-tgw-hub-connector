@@ -25,7 +25,8 @@ module "tgw_hub_this_region" {
   source  = "cloudposse/stack-config/yaml//modules/remote-state"
   version = "1.8.0"
 
-  component = var.this_tgw_hub_component_name
+  # Use the first none-null value
+  component = coalesce(var.this_tgw_hub_component_name, var.tgw_hub_this_region_component_name) 
 
   context = module.this.context
 }
@@ -34,7 +35,8 @@ module "tgw_hub_primary_region" {
   source  = "cloudposse/stack-config/yaml//modules/remote-state"
   version = "1.8.0"
 
-  component   = var.primary_tgw_hub_component_name
+  # Use the first none-null value
+  component   = coalesce(var.primary_tgw_hub_component_name, var.tgw_hub_primary_region_component_name)
   stage       = local.primary_tgw_hub_stage
   environment = local.primary_tgw_hub_environment
   tenant      = local.primary_tgw_hub_tenant
