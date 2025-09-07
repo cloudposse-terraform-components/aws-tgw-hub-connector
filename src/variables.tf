@@ -73,20 +73,20 @@ variable "account_map_component_name" {
 
 variable "tgw_hub_this_region_component_name" {
   type        = string
-  description = <<-EOT
+  description = <<-DOC
     The component name of the tgw hub in this region. 
     Deprecated, use variable `this_tgw_hub_component_name` instead.
     If the `this_tgw_hub_component_name` variable is set (i.e., not null), it takes precedence over the deprecated variable.
-  EOT
+  DOC
   default     = "tgw/hub"
 }
 
 variable "tgw_hub_primary_region_component_name" {
   type        = string
-  description = <<-EOT
+  description = <<-DOC
     The component name of the tgw hub in the primary region. 
     Deprecated, use variable `primary_tgw_hub_component_name` instead.
     If the `primary_tgw_hub_component_name` variable is set (i.e., not null), it takes precedence over the deprecated variable.
-  EOT
+  DOC
   default     = "tgw/hub"
 }
