@@ -20,6 +20,12 @@ variable "primary_tgw_hub_tenant" {
   default     = ""
 }
 
+variable "primary_tgw_hub_environment" {
+  type        = string
+  description = "The name of the environment where the primary Transit Gateway hub is deployed. Defaults to `module.this.environment`"
+  default     = ""
+}
+
 variable "primary_tgw_hub_stage" {
   type        = string
   description = "The name of the stage where the primary Transit Gateway hub is deployed. Defaults to `module.this.stage`"

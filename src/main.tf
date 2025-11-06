@@ -1,8 +1,9 @@
 locals {
   enabled = module.this.enabled
 
-  primary_tgw_hub_tenant = length(var.primary_tgw_hub_tenant) > 0 ? var.primary_tgw_hub_tenant : module.this.tenant
-  primary_tgw_hub_stage  = length(var.primary_tgw_hub_stage) > 0 ? var.primary_tgw_hub_stage : module.this.stage
+  primary_tgw_hub_tenant      = length(var.primary_tgw_hub_tenant) > 0 ? var.primary_tgw_hub_tenant : module.this.tenant
+  primary_tgw_hub_environment = length(var.primary_tgw_hub_environment) > 0 ? var.primary_tgw_hub_environment : module.this.environment
+  primary_tgw_hub_stage       = length(var.primary_tgw_hub_stage) > 0 ? var.primary_tgw_hub_stage : module.this.stage
   # Try tenant-environment-stage format first (for test cases), then fall back to tenant-stage (for production)
   # full_account_map may be keyed by either format depending on configuration
   primary_tgw_hub_account_with_env    = local.enabled ? "${local.primary_tgw_hub_tenant}-${local.primary_tgw_hub_environment}-${local.primary_tgw_hub_stage}" : null

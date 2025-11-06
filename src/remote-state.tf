@@ -1,8 +1,6 @@
 locals {
-  primary_tgw_hub_environment = module.utils.region_az_alt_code_maps[var.env_naming_convention][var.primary_tgw_hub_region]
+  primary_tgw_hub_environment_derived = module.utils.region_az_alt_code_maps[var.env_naming_convention][var.primary_tgw_hub_region]
 }
-
-# Used to translate region to environment
 module "utils" {
   source  = "cloudposse/utils/aws"
   version = "1.4.0"
@@ -36,7 +34,7 @@ module "tgw_hub_primary_region" {
 
   component   = var.tgw_hub_primary_region_component_name
   stage       = local.primary_tgw_hub_stage
-  environment = local.primary_tgw_hub_environment
+  environment = length(var.primary_tgw_hub_environment) > 0 ? var.primary_tgw_hub_environment : local.primary_tgw_hub_environment_derived
   tenant      = local.primary_tgw_hub_tenant
 
   context = module.this.context
