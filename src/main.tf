@@ -1,20 +1,17 @@
 locals {
   enabled = module.this.enabled
 
-  primary_tgw_hub_tenant     = length(var.primary_tgw_hub_tenant) > 0 ? var.primary_tgw_hub_tenant : module.this.tenant
-  primary_tgw_hub_stage      = length(var.primary_tgw_hub_stage) > 0 ? var.primary_tgw_hub_stage : module.this.stage
-  primary_tgw_hub_account    = local.enabled ? yamldecode(data.utils_component_config.primary_tgw_hub[0].output).stack : null
-  primary_tgw_hub_account_id = local.enabled ? module.account_map.outputs.full_account_map[local.primary_tgw_hub_account] : null
-}
-
-data "utils_component_config" "primary_tgw_hub" {
-  count = local.enabled ? 1 : 0
-
-  component   = "tgw/hub"
-  namespace   = module.this.namespace
-  tenant      = local.primary_tgw_hub_tenant
-  environment = local.primary_tgw_hub_environment
-  stage       = local.primary_tgw_hub_stage
+  primary_tgw_hub_tenant = length(var.primary_tgw_hub_tenant) > 0 ? var.primary_tgw_hub_tenant : module.this.tenant
+  primary_tgw_hub_stage  = length(var.primary_tgw_hub_stage) > 0 ? var.primary_tgw_hub_stage : module.this.stage
+  # Try tenant-environment-stage format first (for test cases), then fall back to tenant-stage (for production)
+  # full_account_map may be keyed by either format depending on configuration
+  primary_tgw_hub_account_with_env    = local.enabled ? "${local.primary_tgw_hub_tenant}-${local.primary_tgw_hub_environment}-${local.primary_tgw_hub_stage}" : null
+  primary_tgw_hub_account_without_env = local.enabled ? "${local.primary_tgw_hub_tenant}-${local.primary_tgw_hub_stage}" : null
+  primary_tgw_hub_account_id = local.enabled ? try(
+    module.account_map.outputs.full_account_map[local.primary_tgw_hub_account_with_env],
+    module.account_map.outputs.full_account_map[local.primary_tgw_hub_account_without_env],
+    null
+  ) : null
 }
 
 # Connect two Transit Gateway Hubs across regions
