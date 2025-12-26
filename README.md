@@ -124,7 +124,6 @@ components:
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.0.0 |
 | <a name="requirement_aws"></a> [aws](#requirement\_aws) | >= 4.1, < 6.0.0 |
-| <a name="requirement_utils"></a> [utils](#requirement\_utils) | >= 1.10.0 |
 
 ## Providers
 
@@ -132,7 +131,6 @@ components:
 |------|---------|
 | <a name="provider_aws"></a> [aws](#provider\_aws) | >= 4.1, < 6.0.0 |
 | <a name="provider_aws.primary_tgw_hub_region"></a> [aws.primary\_tgw\_hub\_region](#provider\_aws.primary\_tgw\_hub\_region) | >= 4.1, < 6.0.0 |
-| <a name="provider_utils"></a> [utils](#provider\_utils) | >= 1.10.0 |
 
 ## Modules
 
@@ -153,7 +151,6 @@ components:
 | [aws_ec2_transit_gateway_peering_attachment_accepter.primary_region](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/ec2_transit_gateway_peering_attachment_accepter) | resource |
 | [aws_ec2_transit_gateway_route_table_association.primary_region](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/ec2_transit_gateway_route_table_association) | resource |
 | [aws_ec2_transit_gateway_route_table_association.this_region](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/ec2_transit_gateway_route_table_association) | resource |
-| [utils_component_config.primary_tgw_hub](https://registry.terraform.io/providers/cloudposse/utils/latest/docs/data-sources/component_config) | data source |
 
 ## Inputs
 
@@ -178,6 +175,7 @@ components:
 | <a name="input_labels_as_tags"></a> [labels\_as\_tags](#input\_labels\_as\_tags) | Set of labels (ID elements) to include as tags in the `tags` output.<br/>Default is to include all labels.<br/>Tags with empty values will not be included in the `tags` output.<br/>Set to `[]` to suppress all generated tags.<br/>**Notes:**<br/>  The value of the `name` tag, if included, will be the `id`, not the `name`.<br/>  Unlike other `null-label` inputs, the initial setting of `labels_as_tags` cannot be<br/>  changed in later chained modules. Attempts to change it will be silently ignored. | `set(string)` | <pre>[<br/>  "default"<br/>]</pre> | no |
 | <a name="input_name"></a> [name](#input\_name) | ID element. Usually the component or solution name, e.g. 'app' or 'jenkins'.<br/>This is the only ID element not also included as a `tag`.<br/>The "name" tag is set to the full `id` string. There is no tag with the value of the `name` input. | `string` | `null` | no |
 | <a name="input_namespace"></a> [namespace](#input\_namespace) | ID element. Usually an abbreviation of your organization name, e.g. 'eg' or 'cp', to help ensure generated IDs are globally unique | `string` | `null` | no |
+| <a name="input_primary_tgw_hub_environment"></a> [primary\_tgw\_hub\_environment](#input\_primary\_tgw\_hub\_environment) | The name of the environment where the primary Transit Gateway hub is deployed. Defaults to `module.this.environment` | `string` | `""` | no |
 | <a name="input_primary_tgw_hub_region"></a> [primary\_tgw\_hub\_region](#input\_primary\_tgw\_hub\_region) | The name of the AWS region where the primary Transit Gateway hub is deployed. This value is used with `var.env_naming_convention` to determine the primary Transit Gateway hub's environment name. | `string` | n/a | yes |
 | <a name="input_primary_tgw_hub_stage"></a> [primary\_tgw\_hub\_stage](#input\_primary\_tgw\_hub\_stage) | The name of the stage where the primary Transit Gateway hub is deployed. Defaults to `module.this.stage` | `string` | `""` | no |
 | <a name="input_primary_tgw_hub_tenant"></a> [primary\_tgw\_hub\_tenant](#input\_primary\_tgw\_hub\_tenant) | The name of the tenant where the primary Transit Gateway hub is deployed. Only used if tenants are deployed and defaults to `module.this.tenant` | `string` | `""` | no |
