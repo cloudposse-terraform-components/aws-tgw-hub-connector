@@ -3,9 +3,9 @@ package test
 import (
 	"testing"
 
+	"github.com/cloudposse/test-helpers/pkg/atmos"
 	helper "github.com/cloudposse/test-helpers/pkg/atmos/component-helper"
 	"github.com/stretchr/testify/assert"
-    "github.com/cloudposse/test-helpers/pkg/atmos"
 )
 
 type ComponentSuite struct {
@@ -21,17 +21,17 @@ func (s *ComponentSuite) TestBasic() {
 	options, _ := s.DeployAtmosComponent(s.T(), component, stack, nil)
 	assert.NotNil(s.T(), options)
 
-    attachmentId := atmos.Output(s.T(), options, "aws_ec2_transit_gateway_peering_attachment_id")
-    assert.NotEmpty(s.T(), attachmentId)
+	attachmentId := atmos.Output(s.T(), options, "aws_ec2_transit_gateway_peering_attachment_id")
+	assert.NotEmpty(s.T(), attachmentId)
 
-    s.DriftTest(component, stack, nil)
+	s.DriftTest(component, stack, nil)
 }
 
 func (s *ComponentSuite) SetupSuite() {
 	s.TestSuite.InitConfig()
 	s.TestSuite.Config.ComponentDestDir = "components/terraform/tgw/hub-connector"
 	s.TestSuite.SetupSuite()
-  }
+}
 
 func TestRunSuite(t *testing.T) {
 	suite := new(ComponentSuite)
